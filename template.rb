@@ -10,7 +10,19 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise' if yes?("Add devise?")
-  
+gem 'simple_form'
+
+gem_group :development do
+  gem 'quiet_assets', '~> 1.1'
+  gem 'awesome_print', '~> 1.6', '>= 1.6.1'
+  gem 'better_errors', '~> 2.1', '>= 2.1.1'
+  gem 'meta_request', '~> 0.3.4'
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+end
+
 gem_group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -38,7 +50,7 @@ run 'mv README.rdoc README.md'
 run 'scp ~/Sites/RailsTemplates/Procfile ./'
 run 'bundle install'
 
-after_bundle do 
+after_bundle do
   git :init
   git add: '.'
   git commit: %Q{ -m 'Git init' }
